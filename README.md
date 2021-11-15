@@ -2,10 +2,10 @@
 project ecole 42   
 simple setting debian server
 
-#discription
+# discription
 see b2br_discription.yaml
 
-#install
+# install
 this install on VirtualBox   
 cd init_server   
 ./init.sh   
