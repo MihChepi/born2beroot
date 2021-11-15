@@ -1,0 +1,51 @@
+help commands:
+  users:
+    su - change user
+    sudo adduser $user
+    sudo deluser $user
+  ssh:
+    ssh $user@localhost -p 4242
+
+---
+
+#network
+ssh:
+  apt install openssh-server ssh
+  systemctl start sshd
+  vim /etc/ssh/sshd_config: |
+    port 4242
+    PermitRootLogin no
+  systemctl restart sshd
+
+firewall:
+  apt install ufw
+  ufw allow 4242
+  ufw enable
+  ufw status numbered
+  cat /sys/module/apparmor/parameters/enabled
+
+ vim /etc/default/ufw # don't change
+    Hostnamectl set-hostname ...
+    Hostname
+    /etc/hostname
+    /etc/hosts
+
+
+sudo:
+  apt install sudo
+  usermod -aG sudo khermann #add user to group
+  sudo groupadd user42
+  Id -Gn $username    # show user's groups
+  usermod -aG $groupname $username
+
+password policy:
+  vim /etc/login.defs:
+    ...
+  sudo apt install libpam-cracklib
+    vim /etc/pam.d/common_password
+  man chage: 
+    change password policy for old users
+
+
+script:
+  apt install net-tools
