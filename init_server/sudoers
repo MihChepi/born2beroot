@@ -24,7 +24,7 @@ Defaults	requiretty
 
 # User privilege specification
 root	ALL=(ALL:ALL) ALL
-Defaults:root !requretty
+Defaults:root !requiretty
 
 # Allow members of group sudo to execute any command
 %sudo	ALL=(ALL:ALL) ALL

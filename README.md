@@ -5,12 +5,16 @@ simple setting debian server
 #discription
 see b2br_discription.yaml
 
-#install
+#install server
 this install on VirtualBox   
 cd init_server   
 ./init.sh   
 
-next, manually change sudoers premissions, other should not read   
-and see output init.sh scripts
+Next, manually change sudoers premissions, other should not read   
+See output init.sh scripts   
 
+#install WP
+cd install_wp
+./install_requirements.sh
+./start.sh
 
