@@ -1,7 +1,3 @@
-#start_server
-#
-#
-#
 #nginx
 #rm -f /etc/nginx/sites-enabled/default
 #rm -f /etc/nginx/sites-available/default
@@ -16,8 +12,8 @@ cp lighttpd.conf /etc/lighttpd/
 
 #wordpress
 cp -r wordpress/* /var/www/html/
-cp wp-config.php /var/www/html/wordpress
-#chown ?
+cp wp-config.php /var/www/html/
+chown -R www-data:www-data /var/www/html
 
 #phpmyadmin
 cp -r phpMyAdmin-4.9.5-english  /usr/share/phpmyadmin
@@ -26,9 +22,12 @@ ln -s /usr/share/phpmyadmin /var/www/html/
 chown -R www-data:www-data /usr/share/phpmyadmin
 
 #start services
-service lighttpd start
-service php7.4-fpm start
-service mysql start
+systemctl enable lighttpd
+systemctl start lighttpd
+systemctl enable php7.4-fpm
+systemctl start php7.4-fpm
+systemctl enable mysql
+systemctl start mysql
 
 #crate database
 echo "CREATE DATABASE wordpress;"| mysql 

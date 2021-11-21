@@ -1,14 +1,15 @@
-help commands:
-  users:
-    su - change user
-    sudo adduser $user
-    sudo deluser $user
-  ssh:
-    ssh $user@localhost -p 4242
-
+# help commands
+users:
+  su #change user
+  sudo adduser $user
+  sudo deluser $user
+  sudo chage -l $user 
+ssh:
+  ssh $user@localhost -p 4242
+  scp -P 4242 -r $user@localhost:/folder/
 ---
 
-#network
+# network
 ssh:
   apt install openssh-server ssh
   systemctl start sshd
@@ -30,11 +31,11 @@ firewall:
     /etc/hostname
     /etc/hosts
 
-
+# users and sudo
 sudo:
   apt install sudo
   usermod -aG sudo khermann #add user to group
-  sudo groupadd user42
+  sudo groupadd user42 #add user to group
   Id -Gn $username    # show user's groups
   usermod -aG $groupname $username
 
@@ -49,3 +50,7 @@ password policy:
 
 script:
   apt install net-tools
+
+cron:
+  crontab -e: edit cron
+  crontab -l: list
