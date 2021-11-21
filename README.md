@@ -13,8 +13,10 @@ cd init_server
 Next, manually change sudoers premissions, other should not read   
 See output init.sh scripts   
 
-## install WP
+## install WP-PhpMyAdmin-MySQL
 cd install_wp
 ./install_requirements.sh
 ./start.sh
 
+## install Prometheus-Grafana
+I see [this](https://freehost.com.ua/faq/articles/ustanovka-steka-grafanaprometheus-na-debian-10/) manual 
